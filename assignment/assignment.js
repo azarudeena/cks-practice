@@ -499,3 +499,36 @@ function findDuplicateTransactions (transactions = []) {
 
     return result;
 }
+
+function getBalanceByCategoryInPeriod (transactions = [], category, start, end) {
+
+    const balance = transactions
+        .map( (tr) => {
+            const {id, srcAct, tgtAct, ...rest} = tr;
+            return {
+                ...rest,
+                time: Date.parse(rest.time)
+            };
+        })
+        .filter(tr =>
+            (tr.category === category && tr.time >= start && tr.time < end))
+        .reduce((bal,tr) => bal + tr.amount, 0)
+
+    return balance;
+}
+
+describe("getBalanceByCategoryInPeriod()", function() {
+    it("returns 0 if there are no transactions", function() {
+        assert.equal(
+            getBalanceByCategoryInPeriod(
+                [],
+                "groceries",
+                new Date("2018-03-01"),
+                new Date("2018-03-31")
+            ),
+            0
+        );
+    });
+
+    // add your tests here
+});
