@@ -1,2 +1,3 @@
 .dcignore
 .idea
+node_modules
