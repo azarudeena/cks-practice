@@ -3,13 +3,15 @@ Vim configurations
 ```shell
 vi ~/.vimrc 
 
-set ts=2 sw=2 expandtab ruler cursorline
+set ts=2 sw=2 expandtab ruler cursorline paste
 set backspace=intent,eol,start
 
                 # OR  use the below command 
 
 echo 'set nu ts=2 sw=2 expandtab ruler cursorline' > ~/.vimrc
 echo 'set backspace=indent,eol,start' >> ~/.vimrc
+echo 'set paste'  >> ~/.vimrc
+echo 'set pastetoggle=<F10>'  >> ~/.vimrc
 
 ```
 
