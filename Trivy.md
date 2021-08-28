@@ -10,3 +10,6 @@ Points to Remember:
 1. Use the `kubectl get pods -n namespace -o=jsonpath=[<JSONPATH Expr>]`
 2. Scan the image using the trivy tool
 
+Automating Scanning
+
+imagePolicyWebHook Admission controller-- approves or denys provisioning with pods. 
